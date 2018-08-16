@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>啸虎商务信息咨询有限公司</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, minimum-scale=0.5">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container_vue" >
+			<div id="container_vue1" class="p-20">
+				<div id="container" class="p-40 border-radius-6 bg-white" style="padding-bottom: 20px;">
+					<!--公司简介-->
+					<div id="company_info" class="m-b-20 row">
+						<div class="col-sm-4">
+							<div class="border p-20">
+								<img src="img/logo.jpg" class="img_msg"></img>
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<h2 class="m-b-20" style="font-weight: 600;color: #b99f30;text-shadow: 2px 2px 3px #dbdb00;">{{logo.info}}</h2>
+							<p v-for="(item,key) in infoList"><span class="info_weight">{{item.name}}：</span><span>{{item.info}}</span></p>
+						</div>
+					</div>
+					<!--经验范围-->
+					<div class="row m-b-20">
+						<div class="col-sm-12">
+							<p><span class="info_weight">{{doList.name}}：</span><span>{{doList.info}}</span></p>
+						</div>
+					</div>
+					
+				</div>
+				<div class="panel p-20">
+					<div class="row">
+						<div class="col-sm-12 border-r">
+							<div class="row m-b-20 border-radius-6 p-20 bg-white" >
+								<div class="col-sm-4" style="border-right: 1px dashed #dbdbdb;">
+									<div class="commonTitle">主要业务</div>
+									<div class="align-c">
+										<img style="width: 200px;height: auto;" class="p-10  border" :src="scrollImg" class="img_msg"></img>
+									</div>
+								</div>
+								<div class="col-sm-8">
+									<div class="commonTitle">业务介绍</div>
+									<div>
+										<h2 class="align-c">随行付</h2>
+										<p><span style="font-weight: 600;">随行付</span>是我公司经营的一个项目，是一款必不可少的养卡提额神机</p>
+										<p><span style="font-weight: 600;">支持：</span><span>刷卡，闪付，京东白条，蚂蚁花呗，QQ钱包，微信支付</span></p>
+										<p><span style="font-weight: 600;">信用卡神器：</span><span>养卡    提额    办卡    贷款    代还</span></p>
+										<span>最重要的是</span><h4 style="display: inline;color: #ff0000;"><em>资金安全有保障</em></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 border-r">
+							<div class="row m-b-20 border-radius-6 p-20 bg-white" >
+								<div class="col-sm-8"  style="border-right: 1px dashed #dbdbdb;">
+									<div class="commonTitle">业务内容</div>
+									<div style="display: inline-block;vertical-align: text-bottom;">
+										<img style="width: 200px;height: auto;" class="p-10  border" src="img/005.jpg" class="img_msg"></img>
+									</div>
+									<div style="display: inline-block;vertical-align: text-bottom;" class="p-20">
+										<h4><em>随行付</em></h4>
+										<p>
+											提供多种型号的智能POS机，让商家实现稳定刷卡收单
+										</p>
+										<h3><em>没有哪张卡刷不了</em></h3>
+										<p>POS机加载效果显著的营销功能，帮助商家赚到更多的钱</p>
+										<p style="color: #ff0000;text-align: center;">365天急速秒到账</p>
+										<h3>行业最低<span style="color: #ff0000;"><em>0.38%</em></span>费率</h3>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="commonTitle">营业执照</div>
+									<div class="align-c">
+										<img style="width: 200px;height: auto;" class="p-10  border" src="img/006.jpg" class="img_msg"></img>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 border-r" style="padding: 0;margin-bottom: -40px;">
+							<div class="m-b-20 border-radius-6 p-20 bg-white" >
+								<div class="commonTitle">具体展示</div>
+									<div class="align-c" style="vertical-align: bottom;">
+										<img style="width: auto;height: 150px;margin: 5px 20px;" class="p-10  border" v-for="(item,key) in imgList" :src="item.img" class="img_msg"></img>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="align-c footer">
+				<div style="margin: 20px auto;">
+					<p>公司地址：陕西省西安市浐灞生态区矿山路东方罗马花园第7幢2单元2层208室</p>
+					<p>联系人：段绍虎</p>
+				</div>
+				
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			 var vm = new Vue({
+		        el: '#container_vue',
+		        data: {
+		            logo:{
+		            	img:"img/logo.jpg",
+		            	name:"名称",
+		            	info:"陕西啸虎商务信息咨询有限公司"
+		            },
+		            infoList:[{
+		            	name:"类型",
+		            	info:"有限责任公司（自然人投资或控股）"
+		            },{
+		            	name:"住所",
+		            	info:"陕西省西安市浐灞生态区矿山路东方罗马花园第7幢2单元2层208室"
+		            },{
+		            	name:"法定代表人",
+		            	info:"段绍虎"
+		            },{
+		            	name:"注册资本",
+		            	info:"壹佰万元人民币"
+		            },{
+		            	name:"成立时间",
+		            	info:"2018年07月16日"
+		            },{
+		            	name:"营业期限",
+		            	info:"长期"
+		            }],
+		            doList:{
+		            	name:"经营范围",
+		            	info:"商务信息咨询；企业管理咨询；会议会展服务；市场营销策划；企业形象策划；文化艺术活动交流策划；多媒体、计算机网络科技领域内的技术开发、技术咨询技术转让；电子产品电子终端设备通讯设备、计算机软硬件、银行卡终端设备、收银设备的营销、安装及维护；电子产品、数码产品、建筑材料、机械设备、工艺礼品、日用百货、办公用品的销售；接受金融机构委托从事金融信息技术外包服务；接受进入机构委托从事金融业务流程外包服务；接受金融机构委托从事金融知识流程外包；接受委托从事票据中介服务外包。（依法须经批准的项目，经相关部门批准后方可开展营销活动）"
+		        	},
+		        	productList:{
+		        		type1List:[{
+		        			img:"img/001.jpg",
+		        			content:"xxxxxxxxxxxxxx"
+		        		},{
+			        		img:"img/010.jpg",
+			        		content:"xxxxxxxxxxxxxx"
+		        		}],
+		        		type2List:[{
+		        			img:"img/005.jpg",
+		        			content:"xxxxxxxxxxxxxx"
+		        		},{
+			        		img:"img/002.jpg",
+			        		content:"xxxxxxxxxxxxxx"
+		        		}],
+		        		type3List:[{
+		        			img:"img/003.jpg",
+		        			content:"xxxxxxxxxxxxxx"
+		        		},{
+			        		img:"img/004.jpg",
+			        		content:"xxxxxxxxxxxxxx"
+		        		}],
+		        		type4List:[{
+		        			img:"img/006.jpg",
+		        			content:"xxxxxxxxxxxxxx"
+		        		},{
+			        		img:"img/007.jpg",
+			        		content:"xxxxxxxxxxxxxx"
+		        		}],
+		        	},
+		        	scrollImg:"img/001.jpg",
+		        	imgList:[{img:"img/011.jpg"},{img:"img/009.jpg"},{img:"img/008.jpg"},{img:"img/010.jpg"}]
+		        },
+		        created:function(){
+		        	
+		        },
+		        mounted:function(){
+		        	this.scroll();
+		        },
+		        methods: {
+		            scroll: function() {
+		            	var _this=this;
+		            	var i=1;
+		            	function carousel(){
+		            		 _this.scrollImg="img/00"+i+".jpg";
+		            		i++;
+		            		if(i>5){
+		            			i=1;
+		            		}
+		            	}
+		            	var c=setInterval(carousel,1000);
+		            }
+		        }
+		    })
+			
+		</script>
+	</body>
+</html
